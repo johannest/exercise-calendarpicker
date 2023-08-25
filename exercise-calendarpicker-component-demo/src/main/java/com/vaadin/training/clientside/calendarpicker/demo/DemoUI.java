@@ -43,5 +43,4 @@ public class DemoUI extends UI {
 
         setContent(layout);
     }
-
 }
