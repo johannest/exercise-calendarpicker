@@ -8,6 +8,12 @@ import com.vaadin.training.clientside.calendarpicker.client.CalendarPickerState;
 public class CalendarPicker extends com.vaadin.ui.AbstractComponent {
 
     private CalendarPickerServerRpc rpc = new CalendarPickerServerRpc() {
+
+        @Override
+        public void setDate(Date newValue) {
+            getState().date = newValue;
+        }
+
     };
 
     public CalendarPicker() {
@@ -20,7 +26,6 @@ public class CalendarPicker extends com.vaadin.ui.AbstractComponent {
     }
 
     public Date getDate() {
-        return new Date();
-        // TODO: return the date user has selected
+        return ((CalendarPickerState) getState(false)).date;
     }
 }
