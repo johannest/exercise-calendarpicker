@@ -16,7 +16,7 @@ public class CalendarPickerConnector extends AbstractComponentConnector
         implements ValueChangeHandler<Date> {
 
     public CalendarPickerConnector() {
-        getWidget().addValueChangeHandler(this);
+        // TODO: register the connector as value change handler to the widget
     }
 
     @Override
@@ -37,16 +37,11 @@ public class CalendarPickerConnector extends AbstractComponentConnector
     @Override
     public void onStateChanged(StateChangeEvent stateChangeEvent) {
         super.onStateChanged(stateChangeEvent);
-        if (stateChangeEvent.hasPropertyChanged("date")) {
-            getWidget().setValue(getState().date);
-            getWidget().setCurrentMonth(getState().date);
-        }
+        // TODO: set the date from state to the widget
     }
 
     @Override
     public void onValueChange(ValueChangeEvent<Date> date) {
-        // RPC class instance is cached in a map, no overhead here except map
-        // lookup
-        getRpcProxy(CalendarPickerServerRpc.class).setDate(date.getValue());
+        // TODO: send the date to the server side using rpc
     }
 }
